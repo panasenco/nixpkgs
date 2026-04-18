@@ -1619,6 +1619,7 @@
   ./services/web-apps/cocoon.nix
   ./services/web-apps/code-server.nix
   ./services/web-apps/coder.nix
+  ./services/web-apps/crawlee-cloud.nix
   ./services/web-apps/collabora-online.nix
   ./services/web-apps/commafeed.nix
   ./services/web-apps/convos.nix
