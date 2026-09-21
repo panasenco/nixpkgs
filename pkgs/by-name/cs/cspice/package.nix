@@ -19,9 +19,8 @@ stdenv.mkDerivation (finalAttrs: {
 
   nativeBuildInputs = [ tcsh ];
 
-  # Upstream ships prebuilt libraries in lib/, replace them with a source build.
-  # -ansi is required: the f2c-generated sources rely on implicit int, which
-  # modern gcc rejects without it.
+  # Upstream ships prebuilt libraries in lib/, replaced with a source build.
+  # -ansi: the f2c-generated sources rely on implicit int.
   env.TKCOMPILEOPTIONS = "-c -ansi -O2 -fPIC -DNON_UNIX_STDIO";
   env.TKLINKOPTIONS = "-lm";
 
@@ -47,8 +46,6 @@ stdenv.mkDerivation (finalAttrs: {
   meta = {
     description = "NASA NAIF SPICE toolkit for reading and writing SPICE data files";
     homepage = "https://naif.jpl.nasa.gov/naif/aboutspice.html";
-    # NAIF's rules allow redistributing SPICE modules as part of a larger
-    # package, but the license is not OSI-approved.
     license = lib.licenses.unfreeRedistributable;
     maintainers = with lib.maintainers; [ panasenco ];
     platforms = lib.platforms.linux;
